@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Dynamic Try-On: Taming Video Virtual Try-on with Dynamic Attention Mechanism">
+  <meta name="keywords" content="Virtual Try-on, Video Generation, Diffusion Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic Try-On</title>
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dynamic Try-On: Taming Video Virtual Try-on with Dynamic Attention Mechanism</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Jun Zheng<sup>1 <sup> </a>&nbsp</a>&nbsp  
+            </span>
+            <span class="author-block">
+              Jing Wang<sup>1<sup> </a>&nbsp</a>&nbsp  
+            </span>
+            
+            <span class="author-block">
+              Fuwei Zhao<sup>2<sup>  </a></a>&nbsp</a>&nbsp  
+            </span>
+            <span class="author-block">
+              Xujie Zhang<sup>1</sup>  </a></a>&nbsp</a>&nbsp  
+            </span>
+            <span class="author-block">
+              Xiaodan Liang<sup>1</sup>  </a></a>&nbsp</a>&nbsp  
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Sun Yat-Sen University</a>&nbsp</a>&nbsp  </span>
+            
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>2</sup>ByteDance China</a>&nbsp</a>&nbsp  </span>
+            
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2405.18326"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark" disabled>
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark" disabled>
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark" disabled>
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+      <div class="container">
+          <div class="item item-steve">
+          <img src="./generate_images/images/teaser/fig_3_teaser_v3.png"  width="100%">
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Video try-on stands as a promising area for its tremendous real-world potential. Previous research on video try-on has primarily focused on transferring product clothing images to videos with simple human poses, while performing poorly with complex movements. To better preserve clothing details, those approaches are armed with an additional garment encoder, resulting in higher computational resource consumption. The primary challenges in this domain are twofold: (1) leveraging the garment encoder's capabilities in video try-on while lowering computational requirements; (2) ensuring temporal consistency in the synthesis of human body parts, especially during rapid movements. To tackle these issues, we propose a novel video try-on framework based on Diffusion Transformer(DiT), named <b>Dynamic Try-On</b>. To reduce computational overhead, we adopt a straightforward approach by utilizing the DiT backbone itself as the garment encoder and employing a dynamic feature fusion module to store and integrate garment features. To ensure temporal consistency of human body parts, we introduce a limb-aware dynamic attention module that enforces the DiT backbone to focus on the regions of human limbs during the denoising process. Extensive experiments demonstrate the superiority of Dynamic Try-On in generating stable and smooth try-on results, even for videos featuring complicated human postures.
+          </p>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+         <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center;">Comparison Results on the VVT dataset</h2>
+            <div class="column">
+              <video width="1344" height="296" controls>
+                <source src="generate_images/videos/Figure_5_h264.mp4" type="video/MP4">
+              </video>
+            </div>
+
+            <div class="column">
+              <video width="1536" height="1064" controls>
+                <source src="generate_images/videos/Figure_9_h264.mp4" type="video/MP4">
+              </video>
+            </div>
+            <div class="column">
+              <video width="1536" height="1064" controls>
+                <source src="generate_images/videos/Figure_10_h264.mp4" type="video/MP4">
+              </video>
+            </div>
+
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center;">Try-on Results on our dataset</h2>
+                <div class="column">
+                  <video width="1920" height="2048" controls>
+                    <source src="generate_images/videos/Figure_11_h264.mp4" type="video/MP4">
+                  </video>
+                </div>
+                <div class="column">
+                  <video width="1920" height="2048" controls>
+                    <source src="generate_images/videos/Figure_12_h264.mp4" type="video/MP4">
+                  </video>
+                </div>
+                <div class="column">
+                  <video width="1920" height="2048" controls>
+                    <source src="generate_images/videos/Figure_13_h264.mp4" type="video/MP4">
+                  </video>
+                </div>
+                <div class="column">
+                  <video width="1920" height="2048" controls>
+                    <source src="generate_images/videos/Figure_14_h264.mp4" type="video/MP4">
+                  </video>
+                </div>
+
+                <div class="columns is-centered">
+                  <div class="column is-full-width">
+                    <h2 class="title is-3" style="text-align: center;">Framework</h2>
+                    <div class="columns is-centered has-text-centered">
+                      <div class="column">
+                        <div class="item item-steve">
+                          <img src="./generate_images/images/dynamic-tryon.png"  width="95%">
+                        </div>   
+                      </div>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Overview of the proposed Dynamic Try-On. The illustration shows three components with the following tasks. (1) <i>Denoising DiT</i> : generating latent representation of video contents and extracting garment features via a chain of ST-DiT blocks. (2) <i>ID Encoder</i> : producing feature residual for the Denoising DiT to preserve the reference person's identity, pose, and background. (3) <i>Dynamic Feature Fusion Module</i> : storing and delivering garment features into the Denoising DiT, thus recovering detailed clothing textures in the generated try-on video.
+                      </p>
+                    </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zheng2024vitondit,
+      title={VITON-DiT: Learning In-the-Wild Video Try-On from Human Dance Videos via Diffusion Transformers},
+      author={Zheng, Jun and Zhao, Fuwei and Xu, Youjiang and Dong, Xin and Liang, Xiaodan},
+      journal={arXiv preprint},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      
+    </div>
+    <div class="columns is-centered">
+      <div class="content">
+        <p>
+          The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
