@@ -1,15 +1,16 @@
-# VITON-DiT
+# Dynamic Try-On
 
-This is the repository that contains source code for the webpage of VITON-DiT.
+This is the repository that contains source code for the webpage of Dynamic Try-On.
 
-If you find VITON-DiT useful for your work please cite:
+If you find Dynamic Try-On useful for your work please cite:
 
 ```
-@article{zheng2024vitondit,
-      title={VITON-DiT: Learning In-the-Wild Video Try-On from Human Dance Videos via Diffusion Transformers},
-      author={Zheng, Jun and Zhao, Fuwei and Xu, Youjiang and Dong, Xin and Liang, Xiaodan},
+@article{zheng2024dynamictryontamingvideo,
+      title={Dynamic Try-On: Taming Video Virtual Try-on with Dynamic Attention Mechanism},
+      author={Zheng, Jun and Wang, Jing and Zhao, Fuwei and Zhang, Xujie and Liang, Xiaodan},
       journal={arXiv preprint},
       year={2024}
+    }
 ```
 
 # Website License
