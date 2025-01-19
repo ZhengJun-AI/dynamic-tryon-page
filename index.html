@@ -172,9 +172,43 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-         <div class="columns is-centered">
+  
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center;">Framework</h2>
+            <div class="columns is-centered has-text-centered">
+              <div class="column">
+                <div class="item item-steve">
+                  <img src="./generate_images/images/dynamic-tryon.png"  width="95%">
+                </div>   
+              </div>
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                Overview of the proposed Dynamic Try-On. The illustration shows three components with the following tasks. (1) <i>Denoising DiT</i> : generating latent representation of video contents and extracting garment features via a chain of ST-DiT blocks. (2) <i>ID Encoder</i> : producing feature residual for the Denoising DiT to preserve the reference person's identity, pose, and background. (3) <i>Dynamic Feature Fusion Module</i> : storing and delivering garment features into the Denoising DiT, thus recovering detailed clothing textures in the generated try-on video.
+              </p>
+            </div>
+
+        <h2 class="title is-3" style="text-align: center; margin-top: 50px;">Overview of Limb-aware Dynamic Attention Module</h2>
+        <h3 class="subtitle is-4" style="text-align: center;">Methodology</h3>
+        <div class="columns is-centered">
+          <div class="column is-one-third">
+            <img src="./generate_images/images/LDAM-0.png" width="100%">
+          </div>
+          <div class="column is-two-thirds">
+            <img src="./generate_images/images/LDAM-1.png" width="100%">
+          </div>
+        </div>
+        <h3 class="subtitle is-4" style="text-align: center;">Qualitative Evaluation</h3>
+        <div class="columns is-centered">
+          <video width="672" height="386" controls>
+            <source src="generate_images/videos/Figure_6_h264.mp4" type="video/MP4">
+          </video>
+        </div>
+
+         <div class="columns is-centered" style="margin-top: 50px;">
           <div class="column is-full-width">
-            <h2 class="title is-3" style="text-align: center;">Comparison Results on the VVT dataset</h2>
+            <h2 class="title is-3" style="text-align: center;">Comparison Results on VVT Dataset</h2>
             <div class="column">
               <video width="1344" height="296" controls>
                 <source src="generate_images/videos/Figure_5_h264.mp4" type="video/MP4">
@@ -192,9 +226,9 @@
               </video>
             </div>
 
-        <div class="columns is-centered">
+        <div class="columns is-centered" style="margin-top: 50px;">
           <div class="column is-full-width">
-            <h2 class="title is-3" style="text-align: center;">Try-on Results on our dataset</h2>
+            <h2 class="title is-3" style="text-align: center;">Try-on Results on Our Dataset</h2>
                 <div class="column">
                   <video width="1920" height="2048" controls>
                     <source src="generate_images/videos/Figure_11_h264.mp4" type="video/MP4">
@@ -215,22 +249,6 @@
                     <source src="generate_images/videos/Figure_14_h264.mp4" type="video/MP4">
                   </video>
                 </div>
-
-                <div class="columns is-centered">
-                  <div class="column is-full-width">
-                    <h2 class="title is-3" style="text-align: center;">Framework</h2>
-                    <div class="columns is-centered has-text-centered">
-                      <div class="column">
-                        <div class="item item-steve">
-                          <img src="./generate_images/images/dynamic-tryon.png"  width="95%">
-                        </div>   
-                      </div>
-                    </div>
-                    <div class="content has-text-justified">
-                      <p>
-                        Overview of the proposed Dynamic Try-On. The illustration shows three components with the following tasks. (1) <i>Denoising DiT</i> : generating latent representation of video contents and extracting garment features via a chain of ST-DiT blocks. (2) <i>ID Encoder</i> : producing feature residual for the Denoising DiT to preserve the reference person's identity, pose, and background. (3) <i>Dynamic Feature Fusion Module</i> : storing and delivering garment features into the Denoising DiT, thus recovering detailed clothing textures in the generated try-on video.
-                      </p>
-                    </div>
 </section>
 
 
